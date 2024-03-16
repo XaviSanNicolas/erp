@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Estudiante;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EstudianteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::match(['get', 'post'],'/estudiantes', [EstudianteController::class,'index']);
+Route::get('/estudiante', [EstudianteController::class,'create']);
+Route::post('/creado', [EstudianteController::class,'store']) -> name('insertStudent');
