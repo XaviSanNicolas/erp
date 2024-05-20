@@ -18,6 +18,13 @@ use App\Http\Controllers\EstudianteController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/prueba', function () {
+    return [
+        'title' => 'titulito',
+        'description' => 'descripcion cualquiera',
+    ];
+})-> name('prueba');
 Route::match(['get', 'post'],'/estudiantes', [EstudianteController::class,'index']);
 Route::get('/estudiante', [EstudianteController::class,'create']);
 Route::post('/creado', [EstudianteController::class,'store']) -> name('insertStudent');
+Route::get('/exito', function(){ return view('creado');})-> name('exito');
