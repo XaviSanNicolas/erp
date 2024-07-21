@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estudiante;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use  Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class EstudianteController extends Controller
 {
@@ -23,7 +25,7 @@ class EstudianteController extends Controller
     {
         Estudiante::create($request->all());
 
-        return redirect()->route('creado');
+        return redirect()->route('exito');
     }
 
     public function show(Estudiante $estudiante)
@@ -41,6 +43,26 @@ class EstudianteController extends Controller
         $estudiante->update($request->all());
 
         return redirect()->route('estudiantes.index');
+    }
+
+    public function updateStudent($id)
+    {
+        $student = Estudiante::findId($id);
+        Session::put('id', $id);
+        return view('updateStudent', compact('student'));
+    }
+    public function updatedStudent(Request $request)
+    {
+        $id = Session::get('id');
+        Estudiante::updatedStudent($id, $request);
+        return Redirect::to('/studentDetail');
+    }
+
+    public function studentDetail()
+    {
+        $id = Session::get('id');
+        $student = Estudiante::findId($id);
+        return view('studentDetail', compact('student'));
     }
 
     public function destroy(Estudiante $estudiante)

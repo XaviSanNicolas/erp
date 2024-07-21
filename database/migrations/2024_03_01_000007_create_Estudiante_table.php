@@ -29,7 +29,7 @@ class CreateEstudianteTable extends Migration
             $table->string('Apellido', 45)->nullable();
             $table->date('Fecha_Nacimiento')->nullable();
             $table->string('Genero', 10)->nullable();
-            $table->string('Dirrecion', 100)->nullable();
+            $table->string('Direccion', 100)->nullable();
             $table->string('Telefono_Contacto', 20)->nullable();
             $table->string('Correo_Electronico', 200)->nullable();
             $table->string('Informacion_Medica', 200)->nullable();

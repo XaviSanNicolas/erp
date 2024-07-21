@@ -28,3 +28,7 @@ Route::match(['get', 'post'],'/estudiantes', [EstudianteController::class,'index
 Route::get('/estudiante', [EstudianteController::class,'create']);
 Route::post('/creado', [EstudianteController::class,'store']) -> name('insertStudent');
 Route::get('/exito', function(){ return view('creado');})-> name('exito');
+Route::get('/updateStudent/{id}', [EstudianteController::class, 'updateStudent'])->name('updateStudent');
+Route::post('/updatedStudent', [EstudianteController::class, 'updatedStudent'])->name('updatedStudent');
+Route::get('/studentDetail', [EstudianteController::class, 'studentDetail'])->name('studentDetail');
+

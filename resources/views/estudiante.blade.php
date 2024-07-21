@@ -17,8 +17,8 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="address">Dirrecion</label>
-        <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="Dirrecion">
+        <label for="address">Direccion</label>
+        <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="Direccion">
     </div>
     <div class="form-group">
         <label for="phone">Teléfono de contacto</label>
