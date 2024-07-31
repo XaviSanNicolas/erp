@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-<form method='POST' action="{{route('insertStudent')}}">
+<form method='POST' action="{{route('insertTeacher')}}">
     @csrf
     <div class="form-row">
         <div class="form-group col-md-3">
@@ -17,8 +17,8 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="address">Dirrecion</label>
-        <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="Dirrecion">
+        <label for="address">Direccion</label>
+        <input type="text" class="form-control" id="address" placeholder="1234 Main St" name="Direccion">
     </div>
     <div class="form-group">
         <label for="phone">Teléfono de contacto</label>
@@ -29,10 +29,11 @@
             <label for="gender">Genero</label>
             <input type="text" class="form-control" id="gender">
         </div>
+    </div>
+    <div class="form-row">
         <div class="form-group col-md-2">
-            <label for="health-inf">Información médica</label>
-            <textarea class="form-control" id="health-inf" name="Informacion_Medica">
-            </textarea>
+            <label class="form-label" for="rol"> Rol</label>
+            <input class="form-control" type="text" id="rol" name="Rol">
         </div>
     </div>
     <div class="form-group">
@@ -42,8 +43,8 @@
             </label>
         </div>
         <div class="date col-md-6">
-            <label class="form-label" for="reg-date"> Fecha de matricula:
-                <input class="form-input" type="date" id="reg-date" name="Fecha_Ingreso">
+            <label class="form-label" for="ini-date"> Fecha de inicio:
+                <input class="form-input" type="date" id="ini-date" name="Fecha_Inicio">
             </label>
         </div>
     </div>

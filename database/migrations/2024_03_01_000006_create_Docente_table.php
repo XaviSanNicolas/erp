@@ -34,6 +34,8 @@ class CreateDocenteTable extends Migration
             $table->string('Correo_Electronico', 45)->nullable();
             $table->string('Rol', 45)->nullable();
             $table->date('Fecha_Inicio')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
 
             $table->unique(["ID_Docente"], 'ID_Docente_UNIQUE');
         });

@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use  Illuminate\Http\Request;
 
 class Docente extends Model
 {
-    protected $table = 'docentes';
+    protected $table = 'docente';
 
     protected $fillable = [
         'Nombre',
@@ -23,5 +24,25 @@ class Docente extends Model
     public function getNombreCompletoAttribute()
     {
         return $this->Nombre . ' ' . $this->Apellido;
+    }
+
+    public static function updatedTeacher($id, Request $request)
+    {
+        $teacher = Docente::find($id);
+        $teacher->Nombre = $request->input('Nombre');
+        $teacher->Apellido = $request->input('Apellido');
+        $teacher->Fecha_Nacimiento = $request->input('Fecha_Nacimiento');
+        $teacher->Genero = $request->input('Genero');
+        $teacher->Direccion = $request->input('Direccion');
+        $teacher->Telefono_Contacto = $request->input('Telefono_Contacto');
+        $teacher->Correo_Electronico = $request->input('Correo_Electronico');
+        $teacher->Rol = $request->input('Rol');
+        $teacher->Fecha_Inicio = $request->input('Fecha_Inicio');
+        $teacher->save();
+    }
+
+    public static function findId($id)
+    {
+        return Docente::find($id);
     }
 }
